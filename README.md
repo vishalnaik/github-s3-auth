@@ -14,7 +14,7 @@ The included deploy script depend on this code being deployed to [Heroku](https:
 
 ##Deploy Instructions
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/localytics/shamer/)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/vishalnaik/s3-browser/)
 
 Click the above button to deploy a Shamer instance to Heroku.
 
