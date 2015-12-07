@@ -20,6 +20,13 @@ class GithubUser():
     headers = {'Accept': 'application/json'}
     r = requests.post('https://github.com/login/oauth/access_token', data=data, headers=headers)
     return r.json().get('access_token')
+
+  def get_all_repo_names(self):
+    all_repo_names = []
+    for r in list(self.repos):
+      all_repo_names.append(str(r.full_name))
+    return all_repo_names
+
   def verify_org(self, org):
     for o in self.orgs:
       if str(o.id) == org:

@@ -12,6 +12,7 @@
   </head>
   <body>
     <div class="container" id='container'>
+      <h3><a href = "/">S3 Browser</a></h3>
       <div class="main">
         <!-- Messages -->
         <div id="messages">
@@ -26,10 +27,18 @@
               {% endif %}
             {% endwith %}
         </div>
+
+        <hr/>
+        
         <!-- Body -->
         <div id="body">
           {% block body %}{% endblock %}
         </div>
+
+        <hr/>
+
+        <div><a href ="/login">Click here</a> to login or refresh listing</div>
+        <div><a href ="/logout">Click here</a> to logout</div>
       </div>
     </div>
   </body>

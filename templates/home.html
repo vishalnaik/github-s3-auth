@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% block title %}{{ object_key }} S3 Browser {% endblock %}
+{% block body %}
+
+
+<h4>You have access to:</h4>
+
+<ul>
+  {% for repo in user_repos %}
+  <li><a href="/list/{{repo}}">{{repo}}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

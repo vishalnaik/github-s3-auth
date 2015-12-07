@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% block title %}{{ object_key }} S3 Browser {% endblock %}
+{% block meta %}
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="cache-control" content="no-store" />
+{% endblock %}
+{% block body %}
+
+
+{% set parts = path.split('/') %}
+<h4><a href = "/list/{{parts[0]}}/{{parts[1]}}/">{{parts[0]}}/{{parts[1]}}</a>
+
+{% for part in parts %}
+  {% if loop.index	> 2 and not loop.last %}
+    &nbsp;<a href = "/list/{{'/'.join(parts[0:loop.index])}}/">/{{part}}</a>
+  {% endif %}
+{% endfor %}
+
+</h4>
+
+<h4>Listing files for {{path}}</h4>
+
+<ul>
+{% for file in files %}
+  {% if file.endswith("/") %}
+    <li><a href="/list/{{file}}">{{file}}</a></li>
+  {% else %}
+    <li><a href="/go/{{file}}" target="_blank">{{file}}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}

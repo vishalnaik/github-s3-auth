@@ -11,6 +11,21 @@ class S3():
     if not os.path.exists('cache'):
       os.makedirs('cache')
 
+  def get_filelist(self, prefix):
+    object_list = self.bucket.list(prefix, delimiter = "/")
+    file_list = []
+    for key in object_list:
+      file_list.append(str(key.name))
+    return file_list
+
+  def get_all_repo_names(self):
+    print("in get all rpos")
+    org_names = self.get_filelist("")
+    all_repos = []
+    for org in org_names:
+      all_repos.extend(self.get_filelist(org))
+    return all_repos
+
   def get_url(self, object_key, expires, force_http=False):
     key = self.bucket.get_key(object_key)
     return key.generate_url(expires, query_auth=True, force_http=force_http) if key else None
@@ -32,4 +47,3 @@ class S3():
       return (open(path, 'r'), self.times.get(object_key, now))
     else:
       return self.get_file(os.path.join(object_key, 'index.html'))
-

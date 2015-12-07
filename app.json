@@ -1,15 +1,12 @@
 {
-  "name": "Shamer",
-  "description": "Shamer is a simple micro-service with the goal of making it dead simple to gamify code coverage.",
+  "name": "S3 Browser",
+  "description": "A simple S3 file browser using Github for authentication, used for build reports for hosted CI",
   "keywords": [
-    "Localytics",
-    "code coverage"
+    "build reports",
+    "hosted ci test results"
   ],
-  "repository": "https://github.com/localytics/shamer/",
+  "repository": "https://github.com/vishalnaik/github-s3-auth/",
   "success_url": "/",
-  "addons": [
-    "mongolab:sandbox"
-  ],
   "env": {
     "AWS_ACCESS_KEY": {
       "description": "Amazon AWS Access Key"
@@ -20,46 +17,11 @@
     "AWS_BUCKET": {
       "description": "Amazon S3 Bucket Name"
     },
-    "GH_BOT_MESSAGE": {
-      "description": "Github comment bot's default message",
-      "value": "Code coverage reports have been generated",
-      "required": false
-    },
-    "GH_ORG": {
-      "description": "Github Org ID (from the Github API)"
-    },
-    "GH_ORG_NAME": {
-      "description": "Github Org Name"
-    },
     "GH_CLIENT_ID": {
       "description": "Github API Client ID"
     },
     "GH_SECRET": {
       "description": "Github API Client Secret"
-    },
-    "GH_BOT_TOKEN": {
-      "description": "Github API Personal Access Token"
-    },
-    "GH_REPOS": {
-      "description": "Comma-separated Github repo names to track coverage for"
-    },
-    "LANGS": {
-      "description": "Comma-separated language file extensions (such as rb,js) to collect coverage for (semicolon-separated for multiple repos, one per repo)"
-    },
-    "STORAGE_COLLECTIONS": {
-      "description": "Comma-separated names of Mongo collections to store repo coverage data in (one per repo)",
-      "value": "coverage"
-    },
-    "CURRENT": {
-      "description": "Comma-separated values of current code coverage percentages (one per repo)"
-    },
-    "CI_API_KEY": {
-      "description": "API Key for CI service [optional]",
-      "required": false
-    },
-    "CI_RESTART_URL": {
-      "description": "Restart endpoint for CI service ($build_id$ and $api_key$ will be substituted) [optional]",
-      "required": false
     },
     "SK": {
       "description": "Flask app secret key",
