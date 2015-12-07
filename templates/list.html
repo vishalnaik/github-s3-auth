@@ -10,18 +10,15 @@
 
 
 {% set parts = path.split('/') %}
-<h4><a href = "/list/{{parts[0]}}/{{parts[1]}}/">{{parts[0]}}/{{parts[1]}}</a>
+<h4>Listing files for <a href = "/list/{{parts[0]}}/{{parts[1]}}/">{{parts[0]}}/{{parts[1]}}</a>
 
 {% for part in parts %}
   {% if loop.index	> 2 and not loop.last %}
     &nbsp;<a href = "/list/{{'/'.join(parts[0:loop.index])}}/">/{{part}}</a>
   {% endif %}
 {% endfor %}
-
 </h4>
-
-<h4>Listing files for {{path}}</h4>
-
+<br/>
 <ul>
 {% for file in files %}
   {% if file.endswith("/") %}
